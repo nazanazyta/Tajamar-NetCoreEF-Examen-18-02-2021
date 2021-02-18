@@ -1,0 +1,26 @@
+﻿@model Libro
+@{ 
+    List<int> cestalibros = Context.Session.GetObject<List<int>>("libros");
+}
+
+<h1>Detalles de @Model.Titulo</h1>
+
+<div class="card">
+    <img style="width: 200px; height: 200px" src="~/images/@Model.Portada" /><br />
+    <p><b>Precio: </b> @Model.Precio</p>
+    <p>@Model.Resumen</p>
+</div>
+<div>
+    @if (cestalibros == null)
+    {
+        <a asp-controller="Libros" asp-action="Pedido" asp-route-idlibro="@Model.IdLibro">Añadir</a>
+    }
+    else if (!cestalibros.Contains(Model.IdLibro))
+    {
+        <a asp-controller="Libros" asp-action="Pedido" asp-route-idlibro="@Model.IdLibro">Añadir</a>
+    }
+    else
+    {
+        <span>Añadido</span>
+    }
+</div>

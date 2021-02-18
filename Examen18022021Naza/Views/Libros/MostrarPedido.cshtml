@@ -1,0 +1,26 @@
+﻿@model List<Libro>
+
+<h1>Carrito:</h1>
+
+@if (Model.Count() > 0)
+{
+    <form method="post">
+        <ul class="list-group">
+            @foreach (Libro lib in Model)
+            {
+                <li class="list-group-item">
+                    @lib.Titulo, @lib.Precio
+                    <input type="number" value="1" class="form-control-sm" name="cantidades" />
+                    <a class="btn btn-danger" asp-action="MostrarPedido"
+                       asp-controller="Libros"
+                       asp-route-idlibro="@lib.IdLibro">Eliminar</a>
+                </li>
+            }
+        </ul>
+        <button type="submit" class="btn btn-success">Realizar pedido</button>
+    </form>
+}
+else
+{
+    <h3>No hay películas en el carrito</h3>
+}

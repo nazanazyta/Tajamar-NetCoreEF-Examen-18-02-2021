@@ -1,0 +1,16 @@
+﻿@{
+    List<int> cestalibros = Context.Session.GetObject<List<int>>("libros");
+    int total = 0;
+    int precio = Context.Session.GetObject<int>("total");
+}
+
+@if (cestalibros != null && cestalibros.Count() != 0)
+{
+    @foreach (int emp in cestalibros)
+    {
+        total++;
+    }
+
+    <a asp-controller="Libros" asp-action="MostrarPedido" class="btn btn-success">@total</a>
+    @precio
+}
