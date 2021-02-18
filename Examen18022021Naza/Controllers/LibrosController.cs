@@ -77,7 +77,7 @@ namespace Examen18022021Naza.Controllers
             String html = "<div>";
             for (int i = 1; i <= numregistros; i += 3)
             {
-                html += "<a href='Lista?posicion=" + i + "?idgenero=" + idgenero + ">Página " + numeropag + "</a> ";
+                html += "<a href='Lista?posicion=" + i + "?idgenero=" + idgenero + "'>Página " + numeropag + "</a> ";
                 numeropag++;
             }
             html += "</div>";
